@@ -1,0 +1,254 @@
+/*초기화*/
+*{
+  margin: 0;
+  padding: 0;
+  font: normal 14px '돋움';
+  background-color: black;
+  color: white;
+}
+
+ul, ol {list-style: none; }
+a {text-decoration: none; color: #111;}
+
+#IndexView {
+  width: 1080px;
+  height: auto;
+  margin: 0 auto;
+
+}
+
+/*해더*/
+header {
+  position: relative;
+  width: 100%;
+  height: 152px;
+  margin-bottom: 5px;
+  border: 1px solid black;
+  }
+
+header > .logo {
+  position: absolute;
+  left: 10%;
+  top: 35px;
+  margin-left: -95px;
+}
+
+header > p {
+  float: right;
+  margin-top: 16px;
+}
+header > p > a{
+  margin-left: 5px;
+  line-height: 2;
+  color: white;
+}
+header > p > a:nth-child(1):hover { font-weight: bold;}
+header > p > a:nth-child(2):hover { font-weight: bold;}
+header > p > a:nth-child(3):hover { font-weight: bold;}
+
+header > .menu{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  margin-left: 550px;
+  margin-top: 80px;
+}
+
+header > .menu > li {
+  float: left;
+  width:  150px;
+  height: 100%;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-position-y: -7px;
+}
+
+header > .menu > li > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header > .menu > li:nth-child(1) > a {background-image: url("../img/header_home.jpg");}
+header > .menu > li:nth-child(1) > a:hover {background-image: url("../img/header_home_ho.jpg");}
+
+header > .menu > li:nth-child(2) > a {background-image: url("../img/header_about.jpg");}
+header > .menu > li:nth-child(2) > a:hover {background-image: url("../img/header_about_ho.jpg");}
+
+header > .menu > li:nth-child(3) > a {background-image: url("../img/header_products.jpg");}
+header > .menu > li:nth-child(3) > a:hover {background-image: url("../img/header_products_ho.jpg");}
+
+
+/*메인*/
+#main {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+/*메인 - index */
+#main > .slider {
+  position: relative;
+  width: 1050px;
+  height: 450px;
+  margin-left: 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#main > .slider > ul {
+  position: relative;
+  width: 1050px;
+  height: 425px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#main > .slider > ul > li {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#main > .slider > ul > li:nth-child(1){left: 0; top: 0;}
+#main > .slider > ul > li:nth-child(2){left: 100%; top: 0;}
+#main > .slider > ul > li:nth-child(3){left: 200%; top: 0;}
+#main > .slider > ul > li:nth-child(4){left: 300%; top: 0;}
+#main > .slider > ul > li:nth-child(5){left: 400%; top: 0;}
+#main > .slider > ul > li:nth-child(6){left: 500%; top: 0;}
+
+#main > .slider > .cnt{
+  position: relative;
+  width: 1050px;
+  background-color: white;
+}
+#main > .slider > .cnt >  a {
+  float: left;
+  position: relative;
+  width: 175px;
+  height: 25px;
+  background-color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid gray;
+}
+#main > .slider > .cnt > .active {
+  color: white;
+  background-color: black;
+}
+#main > .items {
+  position: relative;
+  width: 100%;
+  height: 1200px;
+}
+#main > .items >section {
+  position: relative;
+  float: right;
+  width: 100%;
+  height: 400px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+#main .B_title > img{
+  width: 100%;
+}
+#main .items >section > article {
+  float: left;
+  width: 25%;
+  height: 85%;
+  box-sizing: border-box;
+  border: 1px solid gray;
+}
+
+#main .items >section > article > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+#main .items >section > article > a:hover > p {
+  text-decoration: underline;
+}
+
+#main .items >section > article .thumb {
+  width: 100%;
+  height: 200px;
+  margin: 0px auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+#main .items >section > article h2 {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  margin-top: 4px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#main .items > section > article p {
+  color: #DDD;
+  font-size: 12px;
+  line-height: 16px;
+  margin: 4px 0;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#main .items > section > article .price{
+  position: relative;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+#main .items > section > article ins::after {content: "원";}
+
+#main .items > section > article ins {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  color: #aaf;
+}
+
+/*풋터*/
+footer {
+  position: fixed;
+  bottom: 0px;
+  margin-top: 5px;
+  padding: 5px;
+  width: 100%;
+  height: 50px;
+}
+footer > .info {
+  position: relative;
+}
+
+footer > .info > li{
+  float: left;
+  top: 5px;
+}
+footer > .info a{
+  margin-left: 3px;
+  color: white;
+}
+footer > .info a:nth-child(1):hover {font-weight: bold;}
+footer > .info a:nth-child(2):hover {font-weight: bold;}
+footer > .info a:nth-child(3):hover {font-weight: bold;}
+footer > .info a:nth-child(4):hover {font-weight: bold;}
+
+footer > p {
+  position:  absolute;
+  text-align: left;
+  top: 25px;
+}

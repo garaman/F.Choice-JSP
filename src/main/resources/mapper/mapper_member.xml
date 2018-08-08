@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.mapper_member">
+
+	<select id="terms" resultType="kr.co.FChoice.vo.TermsVO">
+		SELECT * FROM fc_terms;
+	</select>
+	
+	<insert id="insertUser">
+		INSERT INTO fc_member SET 
+			fc_id=#{fc_id},
+			fc_pw=PASSWORD(#{fc_pw}),
+			fc_name=#{fc_name},
+			fc_email=#{fc_email},
+			fc_hp=#{fc_hp},
+			fc_zip=#{fc_zip},
+			fc_addr1=#{fc_addr1},
+			fc_addr2=#{fc_addr2},
+			fc_ip=#{fc_ip},
+			fc_rdate=NOW(),
+			fc_seller=#{fc_seller};		
+	</insert>
+	<insert id="insertCompany">
+		INSERT INTO fc_member_seller SET 
+			fcs_id=#{fcs_id},
+			fcs_company=#{fcs_company},
+			fcs_ceo=#{fcs_ceo},
+			fcs_corp_reg=#{fcs_corp_reg},
+			fcs_online_reg=#{fcs_online_reg},
+			fcs_fax=#{fcs_fax},
+			fcs_tel=#{fcs_tel};
+	</insert>
+</mapper>

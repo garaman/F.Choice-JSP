@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.mapper_board">
+	
+	<select id="list" resultType="kr.co.FChoice.vo.BoardVO">
+		SELECT * FROM fc_board WHERE fc_parent=0 AND fc_cat=#{fc_cat} ORDER BY fc_seq DESC LIMIT #{limit}, 10;
+	</select>
+	
+	<insert id="write" parameterType="kr.co.FChoice.vo.BoardVO" useGeneratedKeys="true" keyProperty="seq">
+		INSERT INTO fc_board SET 
+			fc_parent=#{fc_parent},
+			fc_cat=#{fc_cat},
+			fc_subject=#{fc_subject},
+			fc_content=#{fc_content},
+			fc_file=#{fc_file},
+			fc_id=#{fc_id},
+			fc_ip=#{fc_ip},
+			fc_rdate=NOW();
+	</insert>
+	
+	<insert id="fileupload">
+		INSERT INTO fc_board_files SET
+			fcf_parent=#{fcf_parent},
+			fcf_path=#{fcf_path},
+			fcf_oldName=#{fcf_oldName},
+			fcf_newName=#{fcf_newName};			
+	</insert>
+	
+	<select id="findseq" resultType="Integer">
+		SELECT MAX(fc_seq) FROM fc_board;
+	</select>
+	
+	<select id="total" resultType="Integer">
+		SELECT COUNT(*) FROM fc_board WHERE fc_parent=0 AND fc_cat=#{fc_cat};
+	</select>
+	
+	<select id="view" resultType="kr.co.FChoice.vo.BoardVO">
+		SELECT * FROM fc_board WHERE fc_seq=#{fc_seq};
+	</select>
+	
+	<update id="hit">
+		UPDATE fc_board SET fc_hit=fc_hit+1 WHERE fc_seq=#{fc_seq};
+	</update>
+	
+	<select id="fileDown" resultType="kr.co.FChoice.vo.FileVO">
+		SELECT * FROM fc_board_files WHERE fcf_parent=#{fc_seq};
+	</select>
+	
+	<delete id="delete">
+		DELETE FROM fc_board WHERE fc_seq=#{fc_seq};
+	</delete>
+	
+	<update id="modify">
+		UPDATE fc_board SET fc_subject=#{fc_subject}, fc_content=#{fc_content} WHERE fc_seq=#{fc_seq};
+	</update>
+	
+	<insert id="comment">
+		INSERT INTO fc_board SET fc_parent=#{fc_seq},
+							 fc_cat='comment',
+							 fc_subject=' ',
+							 fc_content=#{fc_content}, 
+							 fc_id=#{fc_id}, 
+							 fc_ip=#{fc_ip}, 
+							 fc_rdate=NOW();
+	</insert>
+	<update id="commentupdate">
+		UPDATE fc_board SET fc_comment = #{fc_comment}+1 WHERE fc_seq=#{fc_seq};
+	</update>
+	
+	<select id="commentrenew" resultType="int">
+		SELECT COUNT(*) FROM fc_board WHERE fc_parent=#{fc_seq};
+	</select>
+	
+	<select id="commentview" resultType="kr.co.FChoice.vo.BoardVO">
+		SELECT * FROM fc_board WHERE fc_parent=#{fc_seq} ORDER BY fc_seq DESC;
+	</select>
+</mapper>

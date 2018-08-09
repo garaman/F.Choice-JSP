@@ -19,6 +19,13 @@ public class MemberDAO {
 		return mybatis.selectOne("mapper.mapper_member.terms");
 	}
 	
+	public MemberVO login(MemberVO mvo) {
+		return mybatis.selectOne("mapper.mapper_member.login", mvo);
+	}
+	public Member_sellerVO getCompany(MemberVO mvo) {
+		return mybatis.selectOne("mapper.mapper_member.company", mvo);
+	}
+	
 	public void register_user(MemberVO mvo) {
 		mybatis.insert("mapper.mapper_member.insertUser", mvo);
 	}

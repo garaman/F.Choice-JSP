@@ -6,6 +6,14 @@
 		SELECT * FROM fc_terms;
 	</select>
 	
+	<select id="login" resultType="kr.co.FChoice.vo.MemberVO">
+		SELECT * FROM fc_member WHERE fc_id = #{fc_id}
+	</select>
+	
+	<select id="company" resultType="kr.co.FChoice.vo.Member_sellerVO">
+		SELECT * FROM fc_member_seller WHERE fcs_id = #{fc_id}
+	</select>
+	
 	<insert id="insertUser">
 		INSERT INTO fc_member SET 
 			fc_id=#{fc_id},
@@ -20,6 +28,7 @@
 			fc_rdate=NOW(),
 			fc_seller=#{fc_seller};		
 	</insert>
+	
 	<insert id="insertCompany">
 		INSERT INTO fc_member_seller SET 
 			fcs_id=#{fcs_id},

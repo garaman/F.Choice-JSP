@@ -29,4 +29,14 @@ public class MemberServiceImpl implements MemberService{
 		dao.register_company(msvo);
 	}
 
+	@Override
+	public MemberVO login(MemberVO mvo) {
+		return dao.login(mvo);
+	}
+
+	@Override
+	public Member_sellerVO getCompany(MemberVO mvo) {
+		return dao.getCompany(mvo);
+	}
+
 }

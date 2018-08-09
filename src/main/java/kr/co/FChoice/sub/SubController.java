@@ -21,19 +21,19 @@ public class SubController {
 		return "/sub/list";
 	}
 	
-	@RequestMapping(value="/sub/userinfo.do")
-	public String userinfo() {
-		return "/sub/userinfo";
+	@RequestMapping(value="/sub/guid.do")
+	public String guid() {
+		return "/sub/guid";
 	}
 	
 	@RequestMapping(value="/sub/products.do")
 	public String products() {
-		return "/sub/products";
+		return "/shop/products";
 	}
 	
 	@RequestMapping(value="/sub/view.do")
 	public String view() {
-		return "/sub/view";
+		return "/shop/view";
 	}
 
 }

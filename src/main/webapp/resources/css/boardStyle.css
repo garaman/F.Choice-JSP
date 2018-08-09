@@ -17,26 +17,22 @@ input, textarea { outline: none; }
 	width: 880px;
 }
 
-#board > .user { float: right; margin-bottom: 10px; }
-
 #board table {
 	width: 100%;
-	border-top: 2px solid #111;
+	border: 2px solid #ddd;
 	/* 테이블 테두리간 여백을 제거 */
 	border-collapse: collapse;
 }
 
 #board table td {
 	padding: 8px 5px;
-	border-top: 1px solid #e9e9e9;
-	border-bottom: 1px solid #e9e9e9;
+	border: 1px solid #e9e9e9;
 }
 
 
-#board > .btnWrite {
+#board > .paging > .btnWrite {
 	float: right;
 	padding: 7px;
-	margin-top: -50px;
 	border: 1px solid #3b3c3f;
 	background: #4b545e;
 	color: #fff;
@@ -58,12 +54,16 @@ input, textarea { outline: none; }
 }
 
 /* 글쓰기 */
-#board > .write input[name=subject] { width: 100%; height: 22px; border: 0; }
-#board > .write label {}
-#board > .write textarea { width: 100%; border: 0; resize: none; }
-#board > .write td:nth-child(1) {
+#board .write input[name=subject] { width: 100%; height: 22px; border: 0; }
+#board .write label {}
+#board .write textarea { width: 100%; border: 0; resize: none; }
+#board .write table{
+	border: 1px solid white;
+	color: #ffffff;
+}
+#board .write td:nth-child(1) {
 	width: 100px;
-	background: #f5f8f9;
+	background: #4b545e; 
 	text-align: center;
 }
 
@@ -86,7 +86,7 @@ input, textarea { outline: none; }
 	padding: 12px;
 	border-top: 1px solid #d1dee2;
 	border-bottom: 1px solid #d1dee2;
-	background: #000;
+	background: #4b545e;
 	color: #ffffff;
 }
 
@@ -122,24 +122,27 @@ input, textarea { outline: none; }
 }
 
 /* 글보기 */
-#board > .view input[name=subject] { width: 100%; height: 22px; border: 0; }
-#board > .view label {}
-#board > .view textarea { width: 100%; border: 0; resize: none; }
-#board > .view td:nth-child(1) {
+#board > .bview input[name=subject] { width: 100%; height: 22px; border: 0; }
+#board > .bview label {}
+#board > .bview textarea { width: 100%; border: 0; resize: none; }
+#board > .bview td:nth-child(1) {
 	width: 100px;
-	background: #f5f8f9;
+	background: #4b545e;
 	text-align: center;
 }
+#board > .bview td > a{
+	color: #fff;
+}
 
-#board > .view .btns { float: right; margin-top: 10px; }
-#board > .view .submit {
+#board > .bview .btns { float: right; margin-top: 10px; }
+#board > .bview .submit {
 	padding: 7px;
 	border: 1px solid #3b3c3f;
 	background: #4b545e;
 	color: #fff;
 }
 
-#board > .view .cancel {
+#board > .bview .cancel {
 	padding: 7px;
 	border: 1px solid #d9ded9;
 	background: #f2f5f9;
@@ -150,7 +153,7 @@ input, textarea { outline: none; }
 .comment_write {
 	padding: 20px 20px 40px;
 	border: 1px solid #e3e3e3;
-	background: #f9f9f9;
+	background: #4b545e;
 	margin-top: 20px;
 }
 
@@ -158,49 +161,74 @@ input, textarea { outline: none; }
 	font-weight: bold;
 	border-bottom: 1px dotted #999;
 	padding-bottom: 6px;
+	background: #4b545e;
 }
 
 .comment_write > div {
 	margin-top: 10px;
 	padding-bottom: 10px;
+	background: #4b545e;
+}
+.comment_write .btns{
+	background: #4b545e;
+}
+.comment_write > form{
+	background: #4b545e;
 }
 
 .comment_write textarea {
 	width: 100%;
 	resize: none;
 	border: 1px solid #e4eaec;
-	color: #000;
+	color: #fff;
 }
 
 /* 댓글목록 */
 .comments {
 	padding: 20px 20px 10px;
 	border: 1px solid #e3e3e3;
-	background: #f9f9f9;
+	background: #4b545e;
 	margin-top: 40px;
 }
 
 .comments > h3 {
+	background: #4b545e;
 	font-weight: bold;
 }
-
 .comments > .comment {
-	border-top: 1px dotted #999;
+	background: #4b545e;
+	border-top: 1px dotted #fff;
 	margin-top: 10px;
 	padding-top: 10px;
+}
+.comments > .comment > .co {
+	text-align: left;
+	background: #4b545e;
+	border-dottom: 1px solid #fff;	
+}
+.comments  span {
+	background: #4b545e;
 }
 
 .comments textarea {
 	width: 100%;
-	border: 0;
 	background: transparent;
-	color: #000;
+	color: #fff;
 	margin: 10px 0;
 	resize: none;
 }
 
 .comment > div {
+	background: #4b545e;
 	text-align: right;
+}
+.comment > div > a{
+	font-size: 11px;
+	padding: 7px;
+	border: 1px solid #d9ded9;
+	background: #f2f5f9;
+	color: #000;
+	text-align: center;
 }
 
 .comments > .empty {

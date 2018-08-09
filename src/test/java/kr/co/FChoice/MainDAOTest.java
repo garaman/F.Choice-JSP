@@ -9,7 +9,10 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import kr.co.FChoice.board.BoardDAO;
 import kr.co.FChoice.member.MemberDAO;
+import kr.co.FChoice.vo.BoardVO;
+import kr.co.FChoice.vo.FileVO;
 import kr.co.FChoice.vo.MemberVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -17,21 +20,26 @@ import kr.co.FChoice.vo.MemberVO;
 public class MainDAOTest {
 	
 	@Inject
-	private MemberDAO dao;
+	private BoardDAO dao;
 	
 	@Test
 	public void test() {
 		
-		MemberVO mvo = new MemberVO();
-		
+		BoardVO mvo = new BoardVO();
+		FileVO fvo = new FileVO();
 		mvo.setFc_id("test");
-		mvo.setFc_pw("123123");
-		mvo.setFc_name("테스트");
-		mvo.setFc_email("test@test.com");
-		mvo.setFc_hp("123-1234-1234");
+		mvo.setFc_cat("test");
+		mvo.setFc_subject("테스트");
+		mvo.setFc_content("test@test.com");
+		mvo.setFc_parent(0);
 		mvo.setFc_ip("192.192.192.192");
 		
-		dao.register_user(mvo);
+		List<BoardVO> co = dao.commentview(15);
+		for(BoardVO c :co) {
+			System.out.println("content: "+c.getFc_content());
+		}
+		
+		
 	}
 
 }
